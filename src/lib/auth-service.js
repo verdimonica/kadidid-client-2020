@@ -11,8 +11,8 @@ class AuthService {
   signup( username, password ) {
     const pr = this.auth
       .post("/auth/signup", { username, password })
-      .then(({ data }) => data);
-    // .then((response) => response.data);
+      .then((response) => response.data);
+      // .then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
 
     return pr;
   }
@@ -27,7 +27,7 @@ class AuthService {
 
   logout() {
     const pr = this.auth
-      .get("/auth/logout", {})
+      .get("/auth/logout")
       .then((response) => response.data);
 
     return pr;
