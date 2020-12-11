@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
+import Dashboard from './components/Dashboard';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -17,7 +18,7 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <Navbar />
+        <Dashboard />
 
         <Switch>
           <Route exact path="/" component={Home} />

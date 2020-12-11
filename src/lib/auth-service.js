@@ -12,7 +12,7 @@ class AuthService {
     const pr = this.auth
       .post("/auth/signup", { username, password })
       .then((response) => response.data);
-      // .then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
+      //.then(({ data }) => data); // Shorter way of `.then((response) => response.data);`
 
     return pr;
   }
