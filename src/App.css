@@ -218,6 +218,10 @@ button {
     object-fit: cover;
   }
 }
+.daily-pic {
+  max-width: 100px;
+  max-height: 100px;
+}
 
 .page-content {
   display: flex;
@@ -370,3 +374,4 @@ button {
   
   .category { padding: 20px; }
 }
+

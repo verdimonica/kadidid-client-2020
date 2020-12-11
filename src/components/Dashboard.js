@@ -39,49 +39,56 @@ class Dashboard extends Component {
                 <div className="content-categories">
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-1"/>
-                    <label className="category" for="opt-1">Samantha</label>
+                    <label className="category" for="opt-1">Samantha's diary</label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-2" checked/>
-                    <label className="category" for="opt-2">19 months</label>
+                    <label className="category" for="opt-2">Last days</label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-3"/>
-                    <label className="category" for="opt-3">.</label>
+                    <label className="category" for="opt-3">Samantha's profile</label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-4"/>
-                    <label className="category" for="opt-4">.</label>
+                    <label className="category" for="opt-4">Chat with parents</label>
                 </div>
                 </div>
                 <div className="tasks-wrapper">
+                <div className="header upcoming">
+                    <h2>Samantha Today</h2>
+                    <div>
+                        <img className="daily-pic" src="https://i.pinimg.com/564x/24/71/e1/2471e15307bff2f3ebb702fa93c804cc.jpg"
+                        alt=""/>
+                    </div>
+                </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-1" checked/>
                     <label for="item-1">
                     <span className="label-text">Poo</span>
                     </label>
-                    <span className="tag approved">.</span>
+                    <span className="tag approved">10:00 AM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-2" checked/>
                     <label for="item-2">
                     <span className="label-text">Pipi</span>
                     </label>
-                    <span className="tag progress">.</span>
+                    <span className="tag progress">12:10 AM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-3"/>
                     <label for="item-3">
                     <span className="label-text">Nap</span>
                     </label>
-                    <span className="tag review">.</span>
+                    <span className="tag review">12:40 - 13:45 PM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-4"/>
                     <label for="item-4">
                     <span className="label-text">Meal</span>
                     </label>
-                    <span className="tag progress">.</span>
+                    <span className="tag progress">12:00 AM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-5"/>
