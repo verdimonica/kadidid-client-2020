@@ -19,10 +19,10 @@
   --tag-color-text-four: #a0a6b5;
   --checkbox-color: #009e90;
   --button-color: #49beb7;
-  --box-color: #fff1d6;
-  --box-color-2: #d3e6ff;
-  --box-color-3: #ffd9d9;
-  --box-color-4: #daffe5;
+  --box-color: #fcff5fb0;
+  --box-color-2: #57e6ff81;
+  --box-color-3: #ff81cb81;
+  --box-color-4: #74ff6f77;
   --task-color: #777982;
 }
 
@@ -42,7 +42,7 @@ body {
   padding: 20px;
   font-family: 'DM Sans', sans-serif;;
   font-size: 12px;
-  background-image: linear-gradient(21deg, rgba(44, 224, 149, 0.37) 68%, rgba(220, 255, 196, 0.5) 163%),linear-gradient(163deg, rgba(49, 170, 144, 0.079) 86%, rgba(239, 112, 138, 0.5) 40%),linear-gradient(30deg, rgba(76, 173, 165, 0.617) 22%, rgba(237, 106, 134, 0.5) 169%),linear-gradient(48deg, rgba(126, 231, 131, 0.732) 64%, rgba(231, 241, 82, 0.699) 43%); background-blend-mode: overlay,multiply,color,normal;
+  background-image: linear-gradient(21deg, rgba(224, 44, 170, 0.075) 68%, rgba(228, 196, 255, 0.5) 163%),linear-gradient(163deg, rgba(142, 49, 170, 0.079) 86%, rgba(182, 112, 239, 0.5) 40%),linear-gradient(30deg, rgba(189, 106, 157, 0.617) 22%, rgba(235, 86, 160, 0.616) 169%),linear-gradient(48deg, rgba(158, 98, 160, 0.732) 64%, rgba(219, 140, 130, 0.699) 43%); background-blend-mode: overlay,multiply,color,normal;
 }
 
 ul {
@@ -56,7 +56,7 @@ button {
   cursor: pointer;
 }
 
-.task-manager {
+.events-manager {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -89,6 +89,7 @@ button {
   color: var(--main-color);
   margin-bottom: 14px;
   font-weight: 500;
+  font-size: 15px;
   
   svg {
     width: 14px;
@@ -104,10 +105,19 @@ button {
   .item{ color: var(--secondary-color); }
 } 
 
-.actions {
+.action {
   padding: 12px;
   display: flex;
   justify-content: space-between;
+  font-size: 16px;
+}
+
+.fas {
+  padding-left: 15px;
+  .fa-poo{
+    content: "\f2fe";
+  }
+  
 }
 
 .circle-2 {
@@ -123,12 +133,12 @@ button {
   border-left: 1px solid #e3e7f7;
   display: flex;
   flex-direction: column;
-  
-.header { 
-    font-size: 20px; 
-    color: var(--main-text-color);
-    margin-left: 30px;
-  }
+
+    header { 
+      font-size: 20px; 
+      color: #e3e7f7;
+      margin-left: 30px;
+    }
 }
 
 .top-part {
@@ -177,7 +187,7 @@ button {
 
 .date { margin-bottom: 6px; opacity: 0.4; font-size: 10px; }
 
-.task-name { 
+.child-name { 
   font-size: 14px; 
   font-weight: 500;
   opacity: 0.6;
@@ -285,14 +295,14 @@ button {
   
   &:hover {
     transform: translatex(2px);
-  }
+  },
   
   label {
     cursor: pointer;
   }
 }
 
- label .label-text { position: relative;}
+ label .action{ position: relative;}
 
  label .label-text:before {
   content:'';
@@ -305,40 +315,10 @@ button {
   transition: .2s ease;
 }
 
-.task-item:checked + label .label-text:before {
-  background-color: var(--checkbox-color);
-  border: none;
-  background-image: url("");
-  background-repeat: no-repeat;
-  background-size: 10px;
-  background-position: center;
-  border: 1px solid var(--checkbox-color);
-}
-
-.tag {
-  font-size: 10px;
+.hour {
+  font-size: 13px;
   padding: 4px 8px;
   border-radius: 20px;
-  
-  &.approved {
-    background-color: var(--tag-color-one);
-    color: var(--tag-color-text-one);
-  }
-  
-  &.progress {
-    background-color: var(--tag-color-two);
-    color: var(--tag-color-text-two);
-  }
-  
-  &.review {
-    background-color: var(--tag-color-three);
-    color: var(--tag-color-text-three);
-  }
-  
-  &.waiting {
-    background-color: var(--tag-color-four);
-    color: var(--tag-color-text-four);
-  }
 }
 
 .upcoming { 

@@ -4,7 +4,7 @@ class Dashboard extends Component {
     render() {
         return (
         <div>   
-            <div className="task-manager">
+            <div className="events-manager">
             <div className="left-bar">
                 <div className="upper-part">
                 <div className="actions">
@@ -35,7 +35,7 @@ class Dashboard extends Component {
                 </div>
             </div>
             <div className="page-content">
-                <div className="header">The tree house</div>
+                <h2 id="header">The tree house</h2>
                 <div className="content-categories">
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-1"/>
@@ -63,32 +63,34 @@ class Dashboard extends Component {
                     </div>
                 </div>
                 <div className="task">
-                    <input className="task-item" name="task" type="checkbox" id="item-1" checked/>
-                    <label for="item-1">
-                    <span className="label-text">Poo</span>
+                    <label for="">
+                    <span className="action label-text">Poo</span>
+                    <i class="fas fa-poo"></i>
                     </label>
-                    <span className="tag approved">10:00 AM</span>
+                    <span className="hour">10:00 AM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-2" checked/>
                     <label for="item-2">
-                    <span className="label-text">Pipi</span>
+                    <span className="action label-text">Pipi</span>
+                    <i class="fas fa-tint"></i>
                     </label>
-                    <span className="tag progress">12:10 AM</span>
+                    <span className="hour">12:10 AM</span>
                 </div>
                 <div className="task">
-                    <input className="task-item" name="task" type="checkbox" id="item-3"/>
                     <label for="item-3">
-                    <span className="label-text">Nap</span>
+                    <span className="action label-text">Nap</span>
+                    <i class="fas fa-bed"></i>
                     </label>
-                    <span className="tag review">12:40 - 13:45 PM</span>
+                    <span className="hour">12:40 - 13:45 PM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-4"/>
                     <label for="item-4">
-                    <span className="label-text">Meal</span>
+                    <span className="action label-text">Meal</span>
+                    <i class="fas fa-carrot"></i>
                     </label>
-                    <span className="tag progress">12:00 AM</span>
+                    <span className="hour">12:00 AM</span>
                 </div>
                 <div className="task">
                     <input className="task-item" name="task" type="checkbox" id="item-5"/>
@@ -96,26 +98,22 @@ class Dashboard extends Component {
                     <input className="task-box yellow" placeholder="leave a comment"/>
                     </label>
                 </div>
-                <div className="task">
-                    <input className="task-item" name="task" type="checkbox" id="item-6"/>
-                    <span className="tag review">In Review</span>
-                </div>
-                <div className="header upcoming">Historic</div>
+                <h2 className="header upcoming">Historic</h2>
                 <div className="task">
                     <label for="item-7">
-                    <div className="label-text">Wednesday 3th</div>
+                    <div className="action">Wednesday 3th</div>
                     </label>
                     <span className="tag waiting">.</span>
                 </div>
                 <div className="task">
                     <label for="item-8">
-                    <div className="label-text">Tuesday 2nd</div>
+                    <div className="action">Tuesday 2nd</div>
                     </label>
                     <span className="tag waiting">.</span>
                 </div>
                 <div className="task">
                     <label for="item-9">
-                    <div className="label-text">Monday 1st</div>
+                    <div className="action">Monday 1st</div>
                     </label>
                     <span className="tag waiting">.</span>
                 </div>
@@ -139,7 +137,7 @@ class Dashboard extends Component {
                 <div className="task-box yellow">
                     <div className="description-task">
                     <div className="date">January 4th</div>
-                    <div className="task-name">Anna</div>
+                    <div className="child-name">Anna</div>
                     </div>
                     <div className="more-button"></div>
                     <div className="members">
@@ -151,7 +149,7 @@ class Dashboard extends Component {
                 <div className="task-box blue">
                     <div className="description-task">
                     <div className="date">January</div>
-                    <div className="task-name">Lucia</div>
+                    <div className="child-name">Lucia</div>
                     </div>
                     <div className="more-button"></div>
                     <div className="members">
@@ -163,7 +161,7 @@ class Dashboard extends Component {
                 <div className="task-box red">
                     <div className="description-task">
                     <div className="date">January</div>
-                    <div className="task-name">Aleix</div>
+                    <div className="child-name">Aleix</div>
                     </div>
                     <div className="more-button"></div>
                     <div className="members">
@@ -175,7 +173,7 @@ class Dashboard extends Component {
                 <div className="task-box green">
                     <div className="description-task">
                     <div className="date">January</div>
-                    <div className="task-name">Leo</div>
+                    <div className="child-name">Leo</div>
                     </div>
                     <div className="more-button"></div>
                     <div className="members">
@@ -187,7 +185,7 @@ class Dashboard extends Component {
                 <div className="task-box blue">
                     <div className="description-task">
                     <div className="date">January</div>
-                    <div className="task-name">Luca</div>
+                    <div className="child-name">Luca</div>
                     </div>
                     <div className="more-button"></div>
                     <div className="members">
@@ -199,19 +197,10 @@ class Dashboard extends Component {
                 <div className="task-box yellow">
                     <div className="description-task">
                     <div className="date">January</div>
-                    <div className="task-name">Eva</div>
+                    <div className="child-name">Eva</div>
                     </div>
                     <div className="more-button"></div>
                     <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    <img
-                        src=""
-                        alt=""/>
-                    <img
-                        src=""
-                        alt=""/>
                     <img
                         src=""
                         alt=""/>
