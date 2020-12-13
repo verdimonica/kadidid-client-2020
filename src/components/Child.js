@@ -7,25 +7,7 @@ import React, { Component } from 'react'
     render() {
         return (
             <div className="page-content">
-                <h2 id="header">The tree house</h2>
-                <div className="content-categories">
-                <div className="label-wrapper">
-                    <input className="nav-item" name="nav" type="radio" id="opt-1"/>
-                    <label className="category" for="opt-1">Samantha's diary</label>
-                </div>
-                <div className="label-wrapper">
-                    <input className="nav-item" name="nav" type="radio" id="opt-2" checked/>
-                    <label className="category" for="opt-2">Last days</label>
-                </div>
-                <div className="label-wrapper">
-                    <input className="nav-item" name="nav" type="radio" id="opt-3"/>
-                    <label className="category" for="opt-3">Samantha's profile</label>
-                </div>
-                <div className="label-wrapper">
-                    <input className="nav-item" name="nav" type="radio" id="opt-4"/>
-                    <label className="category" for="opt-4">Chat with parents</label>
-                </div>
-                </div>
+                
                 <div className="tasks-wrapper">
                 <div className="header upcoming">
                     <h2>Samantha Today</h2>

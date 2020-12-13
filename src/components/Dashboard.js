@@ -1,6 +1,23 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 class Dashboard extends Component {
+    state = {
+        name:"",
+        image:""
+    }
+    componentDidMount() {
+        axios.get('http://localhost:5000/api/child/5fd53abd4eba5412945d5937')
+        .then( (response) => {
+            const child = response.data;
+            console.log(child)
+            this.setState( {image: child.image, name: child.name } )
+        })
+        .catch( (err) => {
+            this.setState( { } )
+        });
+    }
+    
     render() {
         return (
         <div>   
@@ -39,7 +56,7 @@ class Dashboard extends Component {
                 <div className="content-categories">
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-1"/>
-                    <label className="category" for="opt-1">Samantha's diary</label>
+                    <label className="category" for="opt-1">{this.state.name}'s diary</label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-2" checked/>
@@ -56,9 +73,9 @@ class Dashboard extends Component {
                 </div>
                 <div className="tasks-wrapper">
                 <div className="header upcoming">
-                    <h2>Samantha Today</h2>
+                    <h2>{this.state.image} Today</h2>
                     <div>
-                        <img className="daily-pic" src="https://i.pinimg.com/564x/24/71/e1/2471e15307bff2f3ebb702fa93c804cc.jpg"
+                        <img className="daily-pic" src={this.state.image}
                         alt=""/>
                     </div>
                 </div>
