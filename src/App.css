@@ -307,6 +307,16 @@ button {
   transition: .2s ease;
 }
 
+.task-item:checked + label .label-text:before {
+  background-color: var(--checkbox-color);
+  border: none;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: center;
+  border: 1px solid var(--checkbox-color);
+}
+
 .hour {
   font-size: 13px;
   padding: 4px 8px;

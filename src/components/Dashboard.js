@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import {Link} from 'react-router-dom';
 
 import ChildToday from './ChildToday';
-import AllChildEvents from './AllChildEvents';
+import ChildEvents from './ChildEvents';
 
 class Dashboard extends Component {
     state = {
@@ -20,8 +21,7 @@ class Dashboard extends Component {
             this.setState( { } )
         });
     }
-    
-   
+
     render() {
         return (
         <div>   
@@ -64,7 +64,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-2" checked/>
-                    <label className="category" for="opt-2">Last days</label>
+                    <label className="category" for="opt-2"><Link to='./ChildEvents'>Last days</Link></label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-3"/>
@@ -118,14 +118,24 @@ class Dashboard extends Component {
                 </div>
                 <div>
                 <h2 className="header upcoming">This week</h2>
-                {this.state.events.map((events) =>{
-                    return(
-                        <AllChildEvents
-                            key={events._id}
-                            {...events}
-                        />
-                    )
-                })}
+                    <ChildEvents/>
+                <div>
+                    <div className="task">
+                        <label for="item-7">
+                        <div className="action">{}</div>
+                        </label>
+                    </div>
+                    <div className="task">
+                        <label for="item-8">
+                        <div className="action">{}</div>
+                        </label>
+                    </div>
+                    <div className="task">
+                        <label for="item-9">
+                        <div className="action">{}</div>
+                        </label>
+                    </div>
+                </div>
                 </div>
                 </div>
             </div>
