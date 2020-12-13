@@ -120,14 +120,6 @@ button {
   
 }
 
-.circle-2 {
-  border-radius: 50%;
-  width: 4px;
-  height: 4px;
-  background-color: #d5d7e3;
-  box-shadow: -6px 0 0 0 #d5d7e3, 6px 0 0 0 #d5d7e3;
-}
-
 .right-bar {
   width: 320px;
   border-left: 1px solid #e3e7f7;

@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 
+import ChildToday from './ChildToday';
+import AllChildEvents from './AllChildEvents';
+
 class Dashboard extends Component {
     state = {
         name:"",
         image:""
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/child/5fd53abd4eba5412945d5937')
+        axios.get('http://localhost:5000/api/child/5fd27255dfbdc96ef6f67429')
         .then( (response) => {
             const child = response.data;
             console.log(child)
@@ -18,6 +21,7 @@ class Dashboard extends Component {
         });
     }
     
+   
     render() {
         return (
         <div>   
@@ -64,7 +68,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-3"/>
-                    <label className="category" for="opt-3">Samantha's profile</label>
+                    <label className="category" for="opt-3">{this.state.name}'s profile</label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-4"/>
@@ -72,13 +76,10 @@ class Dashboard extends Component {
                 </div>
                 </div>
                 <div className="tasks-wrapper">
-                <div className="header upcoming">
-                    <h2>{this.state.image} Today</h2>
-                    <div>
-                        <img className="daily-pic" src={this.state.image}
-                        alt=""/>
-                    </div>
-                </div>
+                    <ChildToday 
+                        name= {this.state.name}
+                        image= {this.state.image}
+                    />
                 <div className="task">
                     <label for="">
                     <span className="action label-text">Poo</span>
@@ -115,26 +116,16 @@ class Dashboard extends Component {
                     <input className="task-box yellow" placeholder="leave a comment"/>
                     </label>
                 </div>
-                <h2 className="header upcoming">Historic</h2>
-                <div className="task">
-                    <label for="item-7">
-                    <div className="action">Wednesday 3th</div>
-                    </label>
-                    <span className="tag waiting">.</span>
-                </div>
-                <div className="task">
-                    <label for="item-8">
-                    <div className="action">Tuesday 2nd</div>
-                    </label>
-                    <span className="tag waiting">.</span>
-                </div>
-                <div className="task">
-                    <label for="item-9">
-                    <div className="action">Monday 1st</div>
-                    </label>
-                    <span className="tag waiting">.</span>
-                </div>
-                <div className="task">
+                <div>
+                <h2 className="header upcoming">This week</h2>
+                {this.state.events.map((events) =>{
+                    return(
+                        <AllChildEvents
+                            key={events._id}
+                            {...events}
+                        />
+                    )
+                })}
                 </div>
                 </div>
             </div>
