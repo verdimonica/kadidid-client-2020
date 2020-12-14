@@ -329,6 +329,17 @@ button {
   margin-bottom: 30px;
 }
 
+.btn {
+  padding-left:200px;
+  padding-top: 40px;
+}
+
+.task-header{
+  padding-top:10px;
+  padding-bottom: 20;
+
+}
+
 @media screen and (max-width: 900px) {
   .left-bar {
     display: none;

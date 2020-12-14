@@ -1,40 +1,48 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import EventMethods from './DeleteEvent'
+import DeleteEvent from './DeleteEvent'
 
 
 class ChildEvents extends Component {
     state = {
-        events:[]
+        events: [],
     }
 
     componentDidMount() {
         axios.get('http://localhost:5000/api/child/5fd27255dfbdc96ef6f67429/event')
         .then( (response) => {
             const events = response.data;
-            console.log(events, "event")
+            EventMethods.getEvent(response.data)
             this.setState({events:events})
         })
         .catch( (err) => {
-            this.setState( { } )
+            console.error(err)
         });
+        
+    }
+    
+    deleteEvent = (id) =>{
+        EventMethods.deleteEvent(id)
     }
 
     render() {
+
         return (
          <div>
+
          {this.state.events.map((event)=>{
+
              console.log(event, "elevent")
              return(
                 <div className="upcoming">
-                    <h3 className="task"><i class="far fa-calendar-alt"></i>{event.date}</h3>
+                    <h2 className="task task-header"><i class="far fa-calendar-alt"></i>{event.date}</h2>
                     <div className="task">
                         <input className="task-item" name="task" type="checkbox" id="item" checked={event.pampersBrown}/>
                         <label for="item">
                         <span className="action label-text">Poo<i className="fas fa-poo"></i></span>
-                        
-                        <span className="hour">10:00 AM<i class="fas fa-clock"></i></span>
                         </label>
-                        <button><i class="fas fa-trash-alt"></i></button><button><i class="fas fa-edit"></i></button>
+                        <span className="hour">10:00 AM<i class="fas fa-clock"></i></span>
                     </div>
                     <div className="task">
                         <input className="task-item" name="task" type="checkbox" id="item-2" checked={event.pampersBlue} />
@@ -65,6 +73,7 @@ class ChildEvents extends Component {
                         <p>{event.comment}<i class="fas fa-comment"></i></p>
                         </label>
                     </div>
+                    <button className="btn" onClick={() => this.deleteEvent(event._id)}><i class="far fa-trash-alt"></i></button><button><i class="fas fa-edit"></i></button>
                 </div>
             
 
