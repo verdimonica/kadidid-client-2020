@@ -6,9 +6,7 @@ class Navbar extends Component {
     render() {
       const {user, logout, isLoggedin} = this.props;
         return (
-        <div className="side-menu">
-          <div className="left-content">
-            <ul className="action-list">
+        <div>
               <li className="item">
               <Link to={'/'}>
                 <span>Home</span>
@@ -21,18 +19,13 @@ class Navbar extends Component {
               ):(
                 <>
                 <li className="item">
-                  <Link to='/signin'>
+                  <Link to='/login'>
                     <span>Sign In</span>
                   </Link>
                 </li>
                 <li className="item">
                   <Link to='/signup'>
                     <span>Sign Up</span>
-                  </Link>
-                </li>
-                <li className="item">
-                  <Link to='/children'>
-                    <span>Children</span>
                   </Link>
                 </li>
                 <li className="item">
@@ -43,9 +36,7 @@ class Navbar extends Component {
                 </>
               )}
               </li>
-            </ul>
           </div>
-        </div>
         )
     }
 }

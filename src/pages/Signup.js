@@ -21,21 +21,25 @@ class Signup extends Component {
     const { username, password } = this.state;
     return (
       <div>
-        <h1>Sign Up</h1>
+        <h2>Sign Up</h2>
 
         <form onSubmit={this.handleFormSubmit}>
 
           <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange} />
+          <input className="text" type="text" name="username" value={username} onChange={this.handleChange} />
+          <br>
 
+          </br>
           <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
+          <input className="text" type="password" name="password" value={password} onChange={this.handleChange} />
+          <br>
 
-          <input type="submit" value="Signup" />
+          </br>
+          <button className="signup" type="submit" value="Signup">Sign Up</button>
         </form>
         
         <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        <Link to={"/login"}> Sign In</Link>
       </div>
     );
   }

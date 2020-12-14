@@ -31,7 +31,9 @@ class ChildEvents extends Component {
         return (
          <div>
 
-         {this.state.events.map((event)=>{
+         {
+         //this.state.events.map((event)=>{         
+         this.props.events.map((event)=>{
 
              console.log(event, "elevent")
              return(
@@ -73,7 +75,7 @@ class ChildEvents extends Component {
                         <p>{event.comment}<i class="fas fa-comment"></i></p>
                         </label>
                     </div>
-                    <button className="btn" onClick={() => this.deleteEvent(event._id)}><i class="far fa-trash-alt"></i></button><button><i class="fas fa-edit"></i></button>
+                    {/*<button className="btn" onClick={() => this.props.deleteEvent(event._id)}><i class="far fa-trash-alt"></i></button><button><i class="fas fa-edit"></i></button>*/}
                 </div>
             
 

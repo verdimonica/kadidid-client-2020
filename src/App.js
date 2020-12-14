@@ -8,6 +8,7 @@ import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Private from './pages/Private';
 import Dashboard from './components/Dashboard';
+import ChildrenList from './components/ChildrenList';
 
 import AnonRoute from './components/AnonRoute';
 import PrivateRoute from './components/PrivateRoute';
@@ -19,7 +20,7 @@ class App extends Component {
     return (
       <div className="container">
        <BrowserRouter>
-        <Dashboard />
+       {/* <Dashboard />*/}
         
           <Switch>
             <Route exact path="/" component={Home} />
@@ -27,10 +28,12 @@ class App extends Component {
             <AnonRoute exact path="/signup" component={Signup} />
             <AnonRoute exact path="/login" component={Login} />
 
+            <Route exact path="/child/:id" component={Dashboard} />
             <PrivateRoute exact path="/private" component={Private} />
           </Switch>
 
         </BrowserRouter>
+
       </div>
     );
   }
