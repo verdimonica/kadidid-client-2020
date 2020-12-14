@@ -20,6 +20,7 @@ class Dashboard extends Component {
         .catch( (err) => {
             this.setState( { } )
         });
+        
     }
 
     render() {

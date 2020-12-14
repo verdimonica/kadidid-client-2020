@@ -32,8 +32,9 @@ class ChildEvents extends Component {
                         <label for="item">
                         <span className="action label-text">Poo<i className="fas fa-poo"></i></span>
                         
-                        </label>
                         <span className="hour">10:00 AM<i class="fas fa-clock"></i></span>
+                        </label>
+                        <button><i class="fas fa-trash-alt"></i></button><button><i class="fas fa-edit"></i></button>
                     </div>
                     <div className="task">
                         <input className="task-item" name="task" type="checkbox" id="item-2" checked={event.pampersBlue} />

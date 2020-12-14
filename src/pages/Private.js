@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Dashboard from "../components/Dashboard";
 import { withAuth } from './../context/auth-context';
 
 class Private extends Component {
