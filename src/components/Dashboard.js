@@ -45,9 +45,18 @@ class Dashboard extends Component {
         }
     }
 
-    deleteEvent = (eventId) =>{
+    deleteEvent = (id) =>{
         // make axios request to delete event
-            // then when deleted successfuly call again method this.getChild() to refresh the child data
+        axios.delete(`http://localhost:5000/api/event/${id}`)
+            .then ((response) => {
+                this.props.history.push('/child/:id')
+                // then when deleted successfuly call again method this.getChild() to refresh the child data
+                this.setState(this.getChild())
+            })
+            .catch( (err) => {
+                this.setState( { } )
+            });
+            
     }
 
     render() {
