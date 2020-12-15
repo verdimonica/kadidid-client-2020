@@ -47,7 +47,7 @@ class Dashboard extends Component {
 
     deleteEvent = (eventId) =>{
         // make axios request to delete event
-        axios.delete(`http://localhost:5000/api/event/${id}`)
+        axios.delete(`http://localhost:5000/api/event/${eventId}`)
             .then ((response) => {
                 if (response.data != null){
                     alert("Event deleted succesfully")
@@ -59,7 +59,6 @@ class Dashboard extends Component {
             .catch( (err) => {
                 this.setState( { } )
             });
-            
     }
 
     render() {

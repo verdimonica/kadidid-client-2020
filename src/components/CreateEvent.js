@@ -10,10 +10,9 @@ class ChildEvents extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/api/child/5fd27255dfbdc96ef6f67429/event')
+        axios.get(`http://localhost:5000/api/child/${id}/event`, { withCredentials: true })
         .then( (response) => {
             const events = response.data;
-            EventMethods.getEvent(response.data)
             this.setState({events:events})
         })
         .catch( (err) => {
@@ -21,24 +20,28 @@ class ChildEvents extends Component {
         });
         
     }
-    
-    deleteEvent = (id) =>{
-        EventMethods.deleteEvent(id)
-    }
 
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const task = target.task;
+      
+           this.setState({
+           [task]: value
+           });
+        }
+        
     render() {
 
         return (
          <div>
 
-         {
-         //this.state.events.map((event)=>{         
-         this.props.events.map((event)=>{
+         {this.props.events.map((event)=>{
              return(
                 <div className="upcoming">
                     <h2 className="task task-header"><i class="far fa-calendar-alt"></i>{event.date}</h2>
                     <div className="task">
-                        <input className="task-item" name="task" type="checkbox" id="item" checked={event.pampersBrown}/>
+                        <input className="task-item" name="task" type="checkbox" id="item" onChange={this.handleInputChange}/>
                         <label for="item">
                         <span className="action label-text">Poo<i className="fas fa-poo"></i></span>
                         </label>
