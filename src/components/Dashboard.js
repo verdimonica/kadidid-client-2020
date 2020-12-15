@@ -2,25 +2,63 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import {Link} from 'react-router-dom';
 
+
 import ChildToday from './ChildToday';
 import ChildEvents from './ChildEvents';
+import Navbar from './Navbar'
+import ChildrenList from './ChildrenList';
 
 class Dashboard extends Component {
     state = {
         name:"",
-        image:""
+        image:"",
+        events: []
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/api/child/5fd27255dfbdc96ef6f67429')
+        const childId = this.props.match.params.id;
+        this.getChild(childId);
+    }
+
+    getChild =(id) => {
+        axios.get(`http://localhost:5000/api/child/${id}`, { withCredentials: true })
         .then( (response) => {
+
             const child = response.data;
-            console.log(child)
-            this.setState( {image: child.image, name: child.name } )
+            axios.get(`http://localhost:5000/api/child/${id}/event`)
+                .then( (response) => {
+                    const events = response.data;
+                    this.setState( {image: child.image, name: child.name, events:events } )
+                })
+
         })
         .catch( (err) => {
             this.setState( { } )
         });
-        
+    }
+
+    componentDidUpdate(prevprops){
+        const previousChildId = prevprops.match.params.id
+        const currentChildId = this.props.match.params.id
+
+        if (previousChildId !== currentChildId){
+            this.getChild(currentChildId)
+        }
+    }
+
+    deleteEvent = (eventId) =>{
+        // make axios request to delete event
+        axios.delete(`http://localhost:5000/api/event/${eventId}`)
+            .then ((response) => {
+                if (response.data != null){
+                    alert("Event deleted succesfully")
+                }
+                this.props.history.push('/child/:id')
+                // then when deleted successfuly call again method this.getChild() to refresh the child data
+                this.setState(this.getChild())
+            })
+            .catch( (err) => {
+                this.setState( { } )
+            });
     }
 
     render() {
@@ -35,24 +73,7 @@ class Dashboard extends Component {
                 </div>
                 <div className="left-content">
                 <ul className="action-list">
-                    <li className="item">
-                    <span>Home</span>
-                    </li>
-                    <li className="item">
-                    <span>Sign out</span>
-                    </li>
-                    <li className="item">
-                    <span>Sign in</span>
-                    </li>
-                    <li className="item">
-                    <span>Sign up</span>
-                    </li>
-                    <li className="item">
-                    <span>Children</span>
-                    </li>
-                    <li className="item">
-                    <span>My profile</span>
-                    </li>
+                    <Navbar/>
                 </ul>
                 </div>
             </div>
@@ -119,115 +140,14 @@ class Dashboard extends Component {
                 </div>
                 <div>
                 <h2 className="header upcoming">This week</h2>
-                    <ChildEvents/>
-                <div>
-                    <div className="task">
-                        <label for="item-7">
-                        <div className="action">{}</div>
-                        </label>
-                    </div>
-                    <div className="task">
-                        <label for="item-8">
-                        <div className="action">{}</div>
-                        </label>
-                    </div>
-                    <div className="task">
-                        <label for="item-9">
-                        <div className="action">{}</div>
-                        </label>
-                    </div>
+                    <ChildEvents events={this.state.events} />
                 </div>
+                   
                 </div>
-                </div>
+                
             </div>
-            <div className="right-bar">
-                <div className="top-part">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    className="feather feather-users">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" /></svg>
-                <div className="count">6</div>
-                </div>
-                <div className="header">Little Monkeys</div>
-                <div className="right-content">
-                <div className="task-box yellow">
-                    <div className="description-task">
-                    <div className="date">January 4th</div>
-                    <div className="child-name">Anna</div>
-                    </div>
-                    <div className="more-button"></div>
-                    <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    </div>
-                </div>
-                <div className="task-box blue">
-                    <div className="description-task">
-                    <div className="date">January</div>
-                    <div className="child-name">Lucia</div>
-                    </div>
-                    <div className="more-button"></div>
-                    <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    </div>
-                </div>
-                <div className="task-box red">
-                    <div className="description-task">
-                    <div className="date">January</div>
-                    <div className="child-name">Aleix</div>
-                    </div>
-                    <div className="more-button"></div>
-                    <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    </div>
-                </div>
-                <div className="task-box green">
-                    <div className="description-task">
-                    <div className="date">January</div>
-                    <div className="child-name">Leo</div>
-                    </div>
-                    <div className="more-button"></div>
-                    <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    </div>
-                </div>
-                <div className="task-box blue">
-                    <div className="description-task">
-                    <div className="date">January</div>
-                    <div className="child-name">Luca</div>
-                    </div>
-                    <div className="more-button"></div>
-                    <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    </div>
-                </div>
-                <div className="task-box yellow">
-                    <div className="description-task">
-                    <div className="date">January</div>
-                    <div className="child-name">Eva</div>
-                    </div>
-                    <div className="more-button"></div>
-                    <div className="members">
-                    <img
-                        src=""
-                        alt=""/>
-                    </div>
-                </div>
-                </div>
-            </div>
-            </div>
+            <ChildrenList/>
+        </div>
         </div>
         )
     }
