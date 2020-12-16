@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <div className="container">
        <BrowserRouter>
-       <Dashboard />
+       {/*<Dashboard />*/}
         
           <Switch>
             <Route exact path="/" component={Home} />
