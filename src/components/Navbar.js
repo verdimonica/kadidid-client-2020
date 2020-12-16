@@ -8,9 +8,6 @@ class Navbar extends Component {
         return (
         <div>
               <li className="item">
-              <Link to={'/'}>
-                <span>Home</span>
-              </Link>
               {this.props.isLoggedIn ?this(
                 <>
                   <p>username:{this.props.user && this.props.user.username}</p>
