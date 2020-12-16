@@ -5,8 +5,9 @@ import {Link} from 'react-router-dom';
 
 import ChildToday from './ChildToday';
 import ChildEvents from './ChildEvents';
-import Navbar from './Navbar'
+import Navbar from './Navbar';
 import ChildrenList from './ChildrenList';
+import CreateEvent from './CreateEvent';
 
 class Dashboard extends Component {
     state = {
@@ -15,16 +16,16 @@ class Dashboard extends Component {
         events: []
     }
     componentDidMount() {
-        const childId = this.props.match.params.id;
-        this.getChild(childId);
+        this.getChild();
     }
 
-    getChild =(id) => {
-        axios.get(`${process.env.REACT_APP_API_URL}/api/child/${id}`, { withCredentials: true })
+    getChild =() => {
+        const childId = this.props.match.params.id;
+        axios.get(`${process.env.REACT_APP_API_URL}/api/child/${childId}`, { withCredentials: true })
         .then( (response) => {
 
             const child = response.data;
-            axios.get(`${process.env.REACT_APP_API_URL}/api/child/${id}/event`)
+            axios.get(`${process.env.REACT_APP_API_URL}/api/child/${childId}/event`)
                 .then( (response) => {
                     const events = response.data;
                     this.setState( {image: child.image, name: child.name, events:events } )
@@ -32,7 +33,6 @@ class Dashboard extends Component {
 
         })
         .catch( (err) => {
-            this.setState( { } )
         });
     }
 
@@ -46,18 +46,19 @@ class Dashboard extends Component {
     }
 
     deleteEvent = (eventId) =>{
+        console.log("THIS IS EVENT ID", eventId)
         // make axios request to delete event
         axios.delete(`${process.env.REACT_APP_API_URL}/api/event/${eventId}`)
             .then ((response) => {
                 if (response.data != null){
-                    alert("Event deleted succesfully")
+                    console.log("Event deleted succesfully")
                 }
-                this.props.history.push('/child/:id')
                 // then when deleted successfuly call again method this.getChild() to refresh the child data
-                this.setState(this.getChild())
+                
+                this.getChild();
             })
             .catch( (err) => {
-                this.setState( { } )
+ 
             });
     }
 
@@ -103,9 +104,10 @@ class Dashboard extends Component {
                         image= {this.state.image}
                     />
 
-                    {/*<CreateEvent
+                    <CreateEvent
+                        childId={this.props.match.params.id}
                         getData={this.getChild}
-                    />*/}
+                    />
                 
                 <div>
                 {/*<div>
@@ -113,7 +115,7 @@ class Dashboard extends Component {
                 <button><i class="fas fa-edit"></i></button>
                 </div>*/}
                 <h2 className="header upcoming">This week</h2>
-                    <ChildEvents events={this.state.events} />
+                    <ChildEvents events={this.state.events} deleteEvent={this.deleteEvent} />
                 </div>
                    
                 </div>
