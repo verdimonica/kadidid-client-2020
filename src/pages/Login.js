@@ -28,19 +28,37 @@ class Login extends Component {
     }
 
     return (
-      <div>
-        <h1>Login</h1>
-
-        <form onSubmit={this.handleFormSubmit}>
-          
-          <label>Username:</label>
-          <input type="text" name="username" value={username} onChange={this.handleChange}/>
-
-          <label>Password:</label>
-          <input type="password" name="password" value={password} onChange={this.handleChange} />
-
-          <input type="submit" value="Login" />
-        </form>
+      <div className="login-wrap">
+        <div className="login-html" id="login-html">
+        <span 
+          id="tab-1" 
+          type="radio" 
+          name="tab" 
+          className="sign-in" 
+          checked>
+          <label for="tab-1" className="tab"/>
+          Login
+        </span>
+        <div className="login-form">
+          <div className="sign-in-htm" >
+          <form onSubmit={this.handleFormSubmit}>
+            <div className="group">
+            <label className="label">Username:</label>
+            <input className="input" type="text" name="username" value={username} onChange={this.handleChange}/>
+            </div>
+            <div className="group">
+            <label className="label">Password:</label>
+            <input className="input" type="password" name="password" value={password} onChange={this.handleChange} />
+            </div>
+            
+            <div className="group">
+                <input className="button" id="login-button" type="submit" value="Login" />
+						</div>
+            
+          </form>
+          </div>
+        </div>
+        </div>
       </div>
     );
   }

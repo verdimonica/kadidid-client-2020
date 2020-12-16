@@ -62,6 +62,8 @@ class Dashboard extends Component {
             });
     }
 
+    //create axios.put to edit event taking eventId
+
     render() {
         return (
         <div>   
@@ -114,7 +116,7 @@ class Dashboard extends Component {
                 <button className="btn" onClick={() => this.deleteEvent(event._id)}><i class="far fa-trash-alt"></i></button>
                 <button><i class="fas fa-edit"></i></button>
                 </div>*/}
-                <h2 className="header upcoming">This week</h2>
+                <h2 className="header upcoming">Last Events</h2>
                     <ChildEvents events={this.state.events} deleteEvent={this.deleteEvent} />
                 </div>
                    

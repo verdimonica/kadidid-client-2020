@@ -27,10 +27,9 @@ export default class ChildrenList extends Component {
       <div className="right-bar">
 
         <div className="top-part">
-          <div>
-            <img className="daily-pic" src="" alt="" />
+         
+          <div className="count">
           </div>
-          <div className="count">.</div>
         </div>
         <h2 className="header">Little Monkeys</h2>
         {this.state.children.map((oneChild) => {

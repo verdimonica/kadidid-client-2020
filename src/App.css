@@ -8,22 +8,22 @@
   --main-color: #353536;
   --secondary-color: #8e92a4;
   --main-text-color: #5d606b;
-  --secondary-dark-color: #9496a5;
+  --secondary-dark-color: #94a598;
   --tag-color-one: #e0fbf6;
-  --tag-color-text-one: #58c2a9;
+  --tag-color-text-one: #58c299;
   --tag-color-two: #ece7fe;
-  --tag-color-text-two: #8972f3;
+  --tag-color-text-two: #72f3c2;
   --tag-color-three: #fde7ea;
-  --tag-color-text-three: #e77f89;
+  --tag-color-text-three: #b1e77f;
   --tag-color-four: #f7f8fc;
   --tag-color-text-four: #a0a6b5;
   --checkbox-color: #009e90;
   --button-color: #49beb7;
   --box-color: #fcff5fb0;
   --box-color-2: #57e6ff81;
-  --box-color-3: #ff81cb81;
+  --box-color-3: #a9ff8181;
   --box-color-4: #74ff6f77;
-  --task-color: #777982;
+  --task-color: #778281;
 }
 
 %flex {
@@ -224,6 +224,12 @@ button {
   max-width: 100px;
   max-height: 100px;
 }
+.user-logo {
+  max-width: 60px;
+  max-height: 60px;
+  border-radius: 200%;
+  margin-left: 230px;
+}
 
 .page-content {
   display: flex;
@@ -369,3 +375,68 @@ button {
 }
 
 /*SIGN UP CSS*/
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:670px;
+	position:relative;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(238, 231, 237, 0.37);
+}
+.login-html .sig-in-htm{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position:absolute;
+    transform:rotateY(180deg);
+    backface-visibility:hidden;
+    transition:all .4s linear;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form{
+	min-height:345px;
+	position:relative;
+	perspective:1000px;
+	transform-style:preserve-3d;
+}
+.login-form .group{
+	margin-bottom:15px;
+}
+.login-form .group .label,
+.login-form .group .input,
+.login-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.login-form .group .input,
+.login-form .group .button{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.login-form .group input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.login-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.login-form .group .button{
+	background:#96c4a486;
+}

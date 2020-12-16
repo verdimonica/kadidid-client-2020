@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-
-class CreateEvent extends Component {
+//bring event id values in a form to be edited
+class EditEvent extends Component {
     state = {
         pampersBrown: false,
         pampersBlue: false,
@@ -139,7 +139,7 @@ class CreateEvent extends Component {
                     </div>
                     
                     <button className="btn">
-                    <i class="far fa-check-square"></i></button>Create Event<button>
+                        <i class="far fa-calendar-check"></i></button>Update Event<button>
                     </button>
                 </form>
                 </div>
@@ -148,7 +148,7 @@ class CreateEvent extends Component {
     }
 }
 
-export default CreateEvent;
+export default EditEvent;
 
 
 
