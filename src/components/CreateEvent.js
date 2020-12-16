@@ -1,16 +1,20 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import axios from 'axios';
-import EventMethods from './DeleteEvent'
 
 
-
-class ChildEvents extends Component {
+class CreateEvent extends Component {
     state = {
         events: [],
+        c: {
+            item1: false,
+            item2: false,
+            item3: false,
+            item4: false,
+        }
     }
 
-    componentDidMount() {
-        axios.get(`http://localhost:5000/api/child/${id}/event`, { withCredentials: true })
+    /*componentDidMount() {
+        axios.get(`${process.env.REACT_APP_API_URL}/api/child/${id}/event`, { withCredentials: true })
         .then( (response) => {
             const events = response.data;
             this.setState({events:events})
@@ -19,19 +23,40 @@ class ChildEvents extends Component {
             console.error(err)
         });
         
-    }
+    }*/
 
+    handelFromSubmit =() =>{}
     handleInputChange(event) {
-        const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
-        const task = target.task;
+        const c = event.c;
+        this.setState({[c]:value})
+        const value = c.type === 'checkbox' ? target.checked : target.value;
+        const task = c.task;
       
            this.setState({
            [task]: value
            });
         }
-        
-    render() {
+
+    
+    createEvent = () =>{
+        const c = this.state.values;
+        axios.post("", c).then( (response) => {
+            const events = response.data;
+            this.setState({events:events})
+        }).catch( (err) => {
+            console.error(err)
+        });
+        axios.post(`${process.env.REACT_APP_API_URL}/api/child/${id}/event`, { c }, { withCredentials: true })
+        .then( (response) => {
+            this.getChild(childId)
+            this.setState({events:events})
+        })
+        .catch( (err) => {
+            console.error(err)
+        });    
+    }
+
+    render(){
 
         return (
          <div>
@@ -39,16 +64,17 @@ class ChildEvents extends Component {
          {this.props.events.map((event)=>{
              return(
                 <div className="upcoming">
+                <form onSubmit={this.handleFormSubmit}>
                     <h2 className="task task-header"><i class="far fa-calendar-alt"></i>{event.date}</h2>
                     <div className="task">
-                        <input className="task-item" name="task" type="checkbox" id="item" onChange={this.handleInputChange}/>
+                        <input className="task-item" name="task" type="checkbox" id="item" onChange={this.handleInputChange} value={this.state.c}/>
                         <label for="item">
                         <span className="action label-text">Poo<i className="fas fa-poo"></i></span>
                         </label>
                         <span className="hour">10:00 AM<i class="fas fa-clock"></i></span>
                     </div>
                     <div className="task">
-                        <input className="task-item" name="task" type="checkbox" id="item-2" checked={event.pampersBlue} />
+                        <input className="task-item" name="task" type="checkbox" id="item-2" onChange={this.handleInputChange} value={this.state.c}/>
                         <label for="item-2">
                         <span className="action label-text">Pipi<i class="fas fa-tint"></i></span>
                         
@@ -56,7 +82,7 @@ class ChildEvents extends Component {
                         <span className="hour">12:10 AM<i class="fas fa-clock"></i></span>
                     </div>
                     <div className="task">
-                        <input className="task-item" name="task" type="checkbox" id="item-3" checked={event.nap}/>
+                        <input className="task-item" name="task" type="checkbox" id="item-3" onChange={this.handleInputChange} value={this.state.c}/>
                         <label for="item-3">
                         <span className="action label-text">Nap<i class="fas fa-bed"></i></span>
                         
@@ -64,7 +90,7 @@ class ChildEvents extends Component {
                         <span className="hour">12:40 - 13:45 PM<i class="fas fa-clock"></i></span>
                     </div>
                     <div className="task">
-                        <input className="task-item" name="task" type="checkbox" id="item-4" checked={event.meal}/>
+                        <input className="task-item" name="task" type="checkbox" id="item-4" onChange={this.handleInputChange} value={this.state.c}/>
                         <label for="item-4">
                         <span className="action label-text">Meal<i class="fas fa-carrot"></i></span>
                         
@@ -72,14 +98,15 @@ class ChildEvents extends Component {
                         <span className="hour">12:00 AM<i class="fas fa-clock"></i></span>
                     </div>
                     <div className="task">
-                        <label for="item-5">
-                        <p>{event.comment}<i class="fas fa-comment"></i></p>
-                        </label>
-                    </div>
+                    <input className="task-item" name="task" type="checkbox" id="item-5"/>
+                    <label for="item-5">
+                    <input className="task-box yellow" placeholder="leave a comment"/>
+                    </label>
+                </div>
                     {/*<button className="btn" onClick={() => this.props.deleteEvent(event._id)}>
                         <i class="far fa-trash-alt"></i></button><button>
-                        <i class="fas fa-edit"></i>
                     </button>*/}
+                </form>
                 </div>
              )
          })}
@@ -88,7 +115,7 @@ class ChildEvents extends Component {
     }
 }
 
-export default ChildEvents;
+export default CreateEvent;
 
 
 

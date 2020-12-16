@@ -50,5 +50,5 @@ class Signup extends Component {
 export default withAuth(Signup);
 
 
-// const EnhancedSignup = withAuth(Signup)
-// export default EnhancedSignup;
+//const EnhancedSignup = withAuth(Signup)
+//export default EnhancedSignup;

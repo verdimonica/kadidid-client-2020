@@ -10,7 +10,7 @@ class ChildEvents extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/api/child/5fd27255dfbdc96ef6f67429/event')
+        axios.get(`${process.env.REACT_APP_API_URL}/api/child/5fd27255dfbdc96ef6f67429/event`)
         .then( (response) => {
             const events = response.data;
             EventMethods.getEvent(response.data)
@@ -32,7 +32,8 @@ class ChildEvents extends Component {
          <div>
 
          {
-         //this.state.events.map((event)=>{         
+         //this.state.events.map((event)=>{  
+               
          this.props.events.map((event)=>{
              return(
                 <div className="upcoming">

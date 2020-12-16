@@ -20,11 +20,11 @@ class Dashboard extends Component {
     }
 
     getChild =(id) => {
-        axios.get(`http://localhost:5000/api/child/${id}`, { withCredentials: true })
+        axios.get(`${process.env.REACT_APP_API_URL}/api/child/${id}`, { withCredentials: true })
         .then( (response) => {
 
             const child = response.data;
-            axios.get(`http://localhost:5000/api/child/${id}/event`)
+            axios.get(`${process.env.REACT_APP_API_URL}/api/child/${id}/event`)
                 .then( (response) => {
                     const events = response.data;
                     this.setState( {image: child.image, name: child.name, events:events } )
@@ -47,7 +47,7 @@ class Dashboard extends Component {
 
     deleteEvent = (eventId) =>{
         // make axios request to delete event
-        axios.delete(`http://localhost:5000/api/event/${eventId}`)
+        axios.delete(`${process.env.REACT_APP_API_URL}/api/event/${eventId}`)
             .then ((response) => {
                 if (response.data != null){
                     alert("Event deleted succesfully")
@@ -81,12 +81,12 @@ class Dashboard extends Component {
                 <h2 id="header">The tree house</h2>
                 <div className="content-categories">
                 <div className="label-wrapper">
-                    <input className="nav-item" name="nav" type="radio" id="opt-1"/>
+                    <input className="nav-item" name="nav" type="radio" id="opt-1" checked/>
                     <label className="category" for="opt-1">{this.state.name}'s diary</label>
                 </div>
                 <div className="label-wrapper">
-                    <input className="nav-item" name="nav" type="radio" id="opt-2" checked/>
-                    <label className="category" for="opt-2"><Link to='./ChildEvents'>Last days</Link></label>
+                    <input className="nav-item" name="nav" type="radio" id="opt-2"/>
+                    <label className="category" for="opt-2">Billing & Invoicing</label>
                 </div>
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-3"/>
@@ -102,43 +102,16 @@ class Dashboard extends Component {
                         name= {this.state.name}
                         image= {this.state.image}
                     />
-                <div className="task">
-                    <label for="">
-                    <span className="action label-text">Poo</span>
-                    <i class="fas fa-poo"></i>
-                    </label>
-                    <span className="hour">10:00 AM</span>
-                </div>
-                <div className="task">
-                    <input className="task-item" name="task" type="checkbox" id="item-2" checked/>
-                    <label for="item-2">
-                    <span className="action label-text">Pipi</span>
-                    <i class="fas fa-tint"></i>
-                    </label>
-                    <span className="hour">12:10 AM</span>
-                </div>
-                <div className="task">
-                    <label for="item-3">
-                    <span className="action label-text">Nap</span>
-                    <i class="fas fa-bed"></i>
-                    </label>
-                    <span className="hour">12:40 - 13:45 PM</span>
-                </div>
-                <div className="task">
-                    <input className="task-item" name="task" type="checkbox" id="item-4"/>
-                    <label for="item-4">
-                    <span className="action label-text">Meal</span>
-                    <i class="fas fa-carrot"></i>
-                    </label>
-                    <span className="hour">12:00 AM</span>
-                </div>
-                <div className="task">
-                    <input className="task-item" name="task" type="checkbox" id="item-5"/>
-                    <label for="item-5">
-                    <input className="task-box yellow" placeholder="leave a comment"/>
-                    </label>
-                </div>
+
+                    {/*<CreateEvent
+                        getData={this.getChild}
+                    />*/}
+                
                 <div>
+                {/*<div>
+                <button className="btn" onClick={() => this.deleteEvent(event._id)}><i class="far fa-trash-alt"></i></button>
+                <button><i class="fas fa-edit"></i></button>
+                </div>*/}
                 <h2 className="header upcoming">This week</h2>
                     <ChildEvents events={this.state.events} />
                 </div>

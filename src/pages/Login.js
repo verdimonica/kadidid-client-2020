@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import {Route, Redirect} from 'react-router-dom';
 import { withAuth } from './../context/auth-context';
+import axios from "axios";
 
 class Login extends Component {
   state = { username: "", password: "" };
@@ -8,7 +10,8 @@ class Login extends Component {
     event.preventDefault();
     const { username, password } = this.state;
     // Call funciton coming from AuthProvider ( via withAuth )
-    this.props.login(username, password);
+    //this.props.login(username, password);
+    this.setState({redirect:true});
   };
 
   handleChange = event => {
@@ -18,6 +21,11 @@ class Login extends Component {
 
   render() {
     const { username, password } = this.state;
+    const {redirect} = this.state;
+
+    if(redirect){
+      return <Redirect to='/child/init'/>;
+    }
 
     return (
       <div>

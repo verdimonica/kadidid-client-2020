@@ -24,7 +24,7 @@ class DeleteEvent extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/api/child/5fd27255dfbdc96ef6f67429/event', {withCredentials:true})
+        axios.get(`${process.env.REACT_APP_API_URL}/api/child/5fd27255dfbdc96ef6f67429/event`, {withCredentials:true})
         .then( (response) => {
             const events = response.data;
             this.setState({events:events})
