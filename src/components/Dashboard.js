@@ -63,6 +63,14 @@ class Dashboard extends Component {
     }
 
     //create axios.put to edit event taking eventId
+    editEvent = (eventId) =>{
+        axios.put(`${process.env.REACT_APP_API_URL}/api/event/${eventId}`)
+            .then ((response) => {
+            
+            })
+            .catch( (err) => {
+            });
+    }
 
     render() {
         return (

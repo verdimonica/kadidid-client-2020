@@ -4,11 +4,11 @@ import axios from 'axios';
 //bring event id values in a form to be edited
 class EditEvent extends Component {
     state = {
-        pampersBrown: false,
-        pampersBlue: false,
-        nap: false,
-        meal: false,
-        comment: "",
+        pampersBrown: `${this.childEvent.props}`,
+        pampersBlue: `${this.childEvent.props}`,
+        nap: `${this.childEvent.props}`,
+        meal: `${this.childEvent.props}`,
+        comment: `${this.childEvent.props}`,
     }
 
     handleFormSubmit =(event) =>{
@@ -30,13 +30,7 @@ class EditEvent extends Component {
             {withCredentials: true}
         )
         .then((response) => {
-            this.setState({
-                    pampersBrown: false,
-                    pampersBlue: false,
-                    nap: false,
-                    meal: false,
-                    comment: "",
-                }
+            
             )
             this.props.getData(); // refresh the Dashboard state
         }).catch((err) => {
