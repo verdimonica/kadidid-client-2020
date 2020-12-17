@@ -44,7 +44,7 @@ class Login extends Component {
           <div className="sign-in-htm" >
           <form onSubmit={this.handleFormSubmit}>
             <div className="group">
-            <label className="label">Username:</label>
+            <label className="label">Email:</label>
             <input className="input" type="text" name="username" value={username} onChange={this.handleChange}/>
             </div>
             <div className="group">
@@ -57,7 +57,7 @@ class Login extends Component {
 						</div>
             <div class="foot-lnk" id="forgot">
 								<image href=""></image>
-							</div>
+						</div>
           </form>
           </div>
         </div>

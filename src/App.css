@@ -15,7 +15,7 @@
   --tag-color-text-two: #c0b12a;
   --tag-color-three: #f5e8af;
   --tag-color-text-three: #00796d;
-  --tag-color-four: #f7f8fc;
+  --tag-color-four: #926c03;
   --tag-color-text-four: #dbb666;
   --checkbox-color: #9e7400;
   --button-color: #bea949;
@@ -436,6 +436,13 @@ button {
   padding-bottom: 50px;
   font-size: 25px;
   color: var(--tag-color-two);
+  transition: .4s ease-in;
+  cursor: pointer;
+}
+.text-2{
+  padding-top: 30px;
+  font-size: 11px;
+  color: var(--tag-color-four);
   transition: .4s ease-in;
   cursor: pointer;
 }

@@ -20,26 +20,48 @@ class Signup extends Component {
   render() {
     const { username, password } = this.state;
     return (
-      <div>
-        <h2>Sign Up</h2>
-
+      <div className="login-wrap">
+        <div className="login-html" id="login-html">
+        <span 
+          id="tab-1" 
+          type="radio" 
+          name="tab" 
+          className="sign-in" 
+          checked>
+          <label for="tab-1" className="tab"/>
+          <p className="text-1" id="opt-2"> Sign In | <Link to={"/login"}> Sign Up</Link></p>
+          <image ClasName="logo" href=""/>
+        </span>
+        <div className="login-form">
+        <div className="sign-in-htm">
         <form onSubmit={this.handleFormSubmit}>
 
-          <label>Username:</label>
-          <input className="text" type="text" name="username" value={username} onChange={this.handleChange} />
-          <br>
-
-          </br>
-          <label>Password:</label>
-          <input className="text" type="password" name="password" value={password} onChange={this.handleChange} />
-          <br>
-
-          </br>
-          <button className="signup" type="submit" value="Signup">Sign Up</button>
+        <div className="group">
+            <label className="label">Email:</label>
+            <input className="input" type="text" name="username" value={username} onChange={this.handleChange}/>
+            </div>
+            <div className="group">
+            <label className="label">Password:</label>
+            <input className="input" type="password" name="password" value={password} onChange={this.handleChange} />
+            </div>
+            
+            <div className="group">
+                <input className="button" id="signup-button" type="submit" value="Signup" />
+						</div>
+            <div class="foot-lnk" id="forgot">
+								<image href=""></image>
+						</div>
+            <div className="text-2">
+            <p>Already have account?</p>
+            </div>
+            
         </form>
         
-        <p>Already have account?</p>
-        <Link to={"/login"}> Sign In</Link>
+        
+
+        </div>
+        </div>
+        </div>
       </div>
     );
   }
