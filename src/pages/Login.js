@@ -55,7 +55,9 @@ class Login extends Component {
             <div className="group">
                 <input className="button" id="login-button" type="submit" value="Login" />
 						</div>
-            
+            <div class="foot-lnk" id="forgot">
+								<image href=""></image>
+							</div>
           </form>
           </div>
         </div>
