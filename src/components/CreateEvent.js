@@ -70,7 +70,7 @@ class CreateEvent extends Component {
                             onChange={this.handleCheckboxChange} 
                             checked={this.state.pampersBrown}
                             className="task-item" 
-                            name="papmersBrown" 
+                            name="pampersBrown" 
                             type="checkbox" 
                             id="item"
                         />
@@ -138,7 +138,7 @@ class CreateEvent extends Component {
                         </label>
                     </div>
                     
-                    <button className="btn">
+                    <button className="btn div.task-box">
                     <i class="far fa-check-square"></i></button>Create Event<button>
                     </button>
                 </form>
