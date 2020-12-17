@@ -28,8 +28,8 @@ class Navbar extends Component {
                 </li>
                 <br/>
                 <li className="item">
-                  <Link className="category" to='/profile'>
-                    <span>My Profile</span>
+                  <Link className="category" to='/'>
+                    <span>Sign Out</span>
                   </Link>
                 </li>
                 </>
