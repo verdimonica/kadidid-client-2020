@@ -37,13 +37,14 @@ class Login extends Component {
           className="sign-in" 
           checked>
           <label for="tab-1" className="tab"/>
-          Login
+          <p className="text-1" id="opt-2"> Sign In | Sign Up</p>
+          <image ClasName="logo" href=""/>
         </span>
         <div className="login-form">
           <div className="sign-in-htm" >
           <form onSubmit={this.handleFormSubmit}>
             <div className="group">
-            <label className="label">Username:</label>
+            <label className="label">Email:</label>
             <input className="input" type="text" name="username" value={username} onChange={this.handleChange}/>
             </div>
             <div className="group">
@@ -54,7 +55,9 @@ class Login extends Component {
             <div className="group">
                 <input className="button" id="login-button" type="submit" value="Login" />
 						</div>
-            
+            <div class="foot-lnk" id="forgot">
+								<image href=""></image>
+						</div>
           </form>
           </div>
         </div>
