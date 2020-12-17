@@ -37,7 +37,8 @@ class Login extends Component {
           className="sign-in" 
           checked>
           <label for="tab-1" className="tab"/>
-          Login
+          <p className="text-1" id="opt-2"> Sign In | Sign Up</p>
+          <image ClasName="logo" href=""/>
         </span>
         <div className="login-form">
           <div className="sign-in-htm" >

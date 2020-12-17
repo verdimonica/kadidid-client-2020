@@ -81,7 +81,7 @@ class Dashboard extends Component {
                 </div>
             </div>
             <div className="page-content">
-                <h2 id="header">The tree house</h2>
+                <h1 id="header">The tree house</h1>
                 <div className="content-categories">
                 <div className="label-wrapper">
                     <input className="nav-item" name="nav" type="radio" id="opt-1" checked/>

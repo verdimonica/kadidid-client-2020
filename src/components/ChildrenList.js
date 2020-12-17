@@ -36,9 +36,9 @@ export default class ChildrenList extends Component {
           return (
             <div className="task-box yellow">
               <div className="description-task">
-                <div className="date">{oneChild.months}</div>
-                <Link to={`/child/${oneChild._id}`}>
-                <div className="child-name">{oneChild.name}</div>
+                <div className="age">{oneChild.months} Months old</div>
+                <Link to={`/child/${oneChild._id}`} className="child-name">
+                <div >{oneChild.name}</div>
                 </Link>
               </div>
             </div>
