@@ -16,17 +16,19 @@ class Navbar extends Component {
               ):(
                 <>
                 <li className="item">
-                  <Link to='/login'>
+                  <Link className="category" to='/login'>
                     <span>Sign In</span>
                   </Link>
                 </li>
-                <li className="item">
-                  <Link to='/signup'>
+                <br/>
+                <li className="item ">
+                  <Link className="category" to='/signup'>
                     <span>Sign Up</span>
                   </Link>
                 </li>
+                <br/>
                 <li className="item">
-                  <Link to='/profile'>
+                  <Link className="category" to='/profile'>
                     <span>My Profile</span>
                   </Link>
                 </li>
